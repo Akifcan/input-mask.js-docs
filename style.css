@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400&family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+:root{
+	--javascript-yellow: #F6DF18;
+	--npm-color: #CB3837;
+	--sea-blue: #006994;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.copied-notification{
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	display: none;
+	color: white;
+	font-size: 1.3em;
+	min-height: 8vh;
+	background-color: var(--sea-blue);
+	font-family: 'Montserrat', sans-serif;
+}
+
+a{
+	text-decoration: none;
+	color: var(--sea-blue);
+}
+
+header{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 10vh;
+	box-shadow: 5px 5px 19px -10px rgba(0,0,0,0.75);
+	font-family: 'Manrope', sans-serif;
+}
+
+header a{
+	font-size: 1.5em;
+}
+
+header a span:hover{
+	color: var(--javascript-yellow);
+}
+
+main .about-library{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	line-height: 3em;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	min-height: 80vh;
+}
+
+.repos{
+	margin-top: 2em;
+}
+
+button{
+	cursor: pointer;
+	border: none;
+	color: white;
+	padding: 1em;
+	font-size: 1em;
+	text-align: center;
+}
+
+.npm-repository{
+	background-color: var(--npm-color);
+}
+
+.get-cdn{
+	background-color: var(--sea-blue);
+}
+
+
+.try-area{
+	margin-top: 2em;
+}
+
+input{
+	padding: .5em;
+	background: transparent;
+}
+
+.try{
+	border: 2px solid var(--sea-blue);
+}
+
+.demo{
+	border: 2px solid black;
+}
+
+.code{
+	margin-top: .5em;
+	font-style: italic;
+	background-color: #272822;
+	color: white;
+	padding: .5em;
+}
+
+footer{
+	background-color: var(--sea-blue);
+}
+
+.footer-content{
+	width: 70%;
+	margin: auto;
+	min-height: 10vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Montserrat', sans-serif;
+	justify-content: space-between;
+	color: white;
+}
+
+footer span{
+    font-family: 'Righteous';
+	opacity: .5;
+	pointer-events: none;
+	background-color: var(--sea-blue);
+}
+
+footer span::selection{
+	background-color: var(--sea-blue);
+	opacity: 0;
+}
+
+footer a{
+	color: white;
+}
+
+@media(max-width: 600px){
+	.two, .three{
+		display: none;
+	}
+	.code{
+		width: 70%;
+	}
+}
