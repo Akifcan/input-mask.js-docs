@@ -3,18 +3,20 @@ const inputs = document.querySelectorAll('.mask')
 inputs.forEach(input => {
 	input.addEventListener('keydown', function(e){
 		let masks = input.dataset.mask.split('')
+
+
 		let checkMaskLength = input.value.length
 		const numberRegex = new RegExp('^[0-9]$') 
 		const letterRegex = new RegExp('^[a-zA-Z]+$')
+
+		console.log(masks)
+		console.log(checkMaskLength)
+		console.log(masks[checkMaskLength])
 
 		let tempRegexMask
 		let tempRegexVal
 
 		input.setAttribute('maxLength', masks.length)
-
-		if(masks[checkMaskLength] == '-'){
-			input.value += '-'
-		}
 
 		if(numberRegex.test(masks[checkMaskLength])){
 			tempRegexMask = 'number'
@@ -27,9 +29,18 @@ inputs.forEach(input => {
 		}else{
 			tempRegexVal = 'letter'
 		}
+		let check = checkMaskLength + 1
+		setTimeout(() => {
+
+			if(e.keyCode != 8){
+				if(masks[check] == '-' || masks[check] == ':'){
+					input.value += masks[check]
+				}
+			}
+
+		}, 100)
 
 		if(tempRegexMask == tempRegexVal){
-			console.log('OK!')
 		}else if(e.keyCode != 8){
 			e.preventDefault()
 		}
