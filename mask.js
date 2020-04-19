@@ -13,36 +13,46 @@ code.innerText = tryInput.value
 input.dataset.mask = tryInput.value
 
 input.addEventListener('keydown', function(e){
-	let masks = input.dataset.mask.split('')
-	let checkMaskLength = input.value.length
-	const numberRegex = new RegExp('^[0-9]$') 
-	const letterRegex = new RegExp('^[a-zA-Z]+$')
+		let masks = input.dataset.mask.split('')
 
-	let tempRegexMask
-	let tempRegexVal
 
-	input.setAttribute('maxLength', masks.length)
+		let checkMaskLength = input.value.length
+		const numberRegex = new RegExp('^[0-9]$') 
+		const letterRegex = new RegExp('^[a-zA-Z]+$')
 
-	if(masks[checkMaskLength] == '-' || masks[checkMaskLength] == ':'){
-		input.value += masks[checkMaskLength]
-	}
+		console.log(masks)
+		console.log(checkMaskLength)
+		console.log(masks[checkMaskLength])
 
-	if(numberRegex.test(masks[checkMaskLength])){
-		tempRegexMask = 'number'
-	}else{
-		tempRegexMask = 'letter'
-	}
+		let tempRegexMask
+		let tempRegexVal
 
-	if(numberRegex.test(e.key)){
-		tempRegexVal = 'number'
-	}else{
-		tempRegexVal = 'letter'
-	}
+		input.setAttribute('maxLength', masks.length)
 
-	if(tempRegexMask == tempRegexVal){
-		console.log('ok')
-	}else if(e.keyCode != 8){
-		e.preventDefault()
-	}
-})	
+		if(numberRegex.test(masks[checkMaskLength])){
+			tempRegexMask = 'number'
+		}else{
+			tempRegexMask = 'letter'
+		}
 
+		if(numberRegex.test(e.key)){
+			tempRegexVal = 'number'
+		}else{
+			tempRegexVal = 'letter'
+		}
+		let check = checkMaskLength + 1
+		setTimeout(() => {
+
+			if(e.keyCode != 8){
+				if(masks[check] == '-' || masks[check] == ':'){
+					input.value += masks[check]
+				}
+			}
+
+		}, 100)
+
+		if(tempRegexMask == tempRegexVal){
+		}else if(e.keyCode != 8){
+			e.preventDefault()
+		}
+	})	
